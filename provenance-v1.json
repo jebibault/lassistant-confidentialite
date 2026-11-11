@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jebibault.github.io/lassistant-confidentialite/provenance-v1.json",
+  "title": "L’assistant AI provenance v1",
+  "description": "Declarative provenance, not a signed C2PA credential. bodySHA256 covers the UTF-8 report body before headers and notices.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "aiAssisted",
+    "digitalSourceType",
+    "generator",
+    "humanReviewed",
+    "bodySHA256"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "aiAssisted": {
+      "const": true
+    },
+    "digitalSourceType": {
+      "type": "string",
+      "format": "uri"
+    },
+    "generator": {
+      "type": "string"
+    },
+    "appVersion": {
+      "type": "string"
+    },
+    "humanReviewed": {
+      "type": "boolean"
+    },
+    "bodySHA256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "scope": {
+      "type": "string"
+    }
+  }
+}
